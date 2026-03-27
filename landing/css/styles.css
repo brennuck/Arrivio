@@ -937,6 +937,84 @@ body {
 }
 
 /* ============================================================
+   COVERAGE
+   ============================================================ */
+
+.coverage-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 100px;
+}
+
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.cov-state {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--topo);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.cov-state:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.cov-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cov-state.has-site .cov-dot {
+  background: var(--accent);
+}
+
+.cov-state.national .cov-dot {
+  background: var(--road);
+}
+
+.cov-state.national {
+  color: var(--text-muted);
+}
+
+.coverage-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.has-dot {
+  background: var(--accent);
+}
+
+.national-dot {
+  background: var(--road);
+}
+
+/* ============================================================
    DEMO
    ============================================================ */
 

@@ -3,6 +3,7 @@ import { extractRealtorAddress } from './realtor'
 import { extractApartmentsAddress } from './apartments'
 import { extractTruliaAddress } from './trulia'
 import { extractRedfinAddress } from './redfin'
+import { extractGenericAddress } from './generic'
 
 type Extractor = () => string | null
 
@@ -23,7 +24,7 @@ export function extractAddress(): string | null {
     }
   }
 
-  return extractFromJsonLd()
+  return extractFromJsonLd() ?? extractGenericAddress()
 }
 
 function extractFromJsonLd(): string | null {
