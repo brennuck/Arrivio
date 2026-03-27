@@ -1,16 +1,7 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { ETAItem } from './ETAItem'
 import type { ETAResult } from '../../shared/types'
-
-function useLogoUrl() {
-  return useMemo(() => {
-    try {
-      return chrome.runtime.getURL('src/assets/icons/icon48.png')
-    } catch {
-      return ''
-    }
-  }, [])
-}
+import { LOGO_DATA_URI } from './logo'
 
 interface ETAPanelProps {
   etas: ETAResult[]
@@ -20,7 +11,6 @@ interface ETAPanelProps {
 
 export function ETAPanel({ etas, loading, error }: ETAPanelProps) {
   const [expanded, setExpanded] = useState(true)
-  const logoUrl = useLogoUrl()
 
   const showSetup = error === 'NO_TOKEN'
   const showNoPlaces = error === 'NO_PLACES'
@@ -32,7 +22,7 @@ export function ETAPanel({ etas, loading, error }: ETAPanelProps) {
         onClick={() => setExpanded(!expanded)}
         type="button"
       >
-        <img className="arrivio-logo" src={logoUrl} alt="Arrivio" />
+        <img className="arrivio-logo" src={LOGO_DATA_URI} alt="Arrivio" />
         {!expanded && etas.length > 0 && (
           <span className="arrivio-badge">{etas.length}</span>
         )}
