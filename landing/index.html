@@ -1,322 +1,519 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arrivio — Know before you go.</title>
-  <meta name="description" content="See drive times to your important places while browsing real estate listings. Works on Zillow, Realtor.com, Apartments.com, Trulia, and Redfin." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="assets/logo.png" />
-</head>
-<body>
-
-  <!-- TOPO BACKGROUND -->
-  <svg class="topo-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="topo" width="260" height="260" patternUnits="userSpaceOnUse">
-        <path d="M130 30 Q160 60 140 100 Q120 140 150 170 Q180 200 130 230" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <path d="M130 50 Q150 75 135 105 Q120 135 145 160 Q165 185 130 210" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <path d="M40 80 Q70 50 110 70 Q150 90 180 60" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <path d="M20 160 Q60 130 100 150 Q140 170 190 140 Q230 110 250 140" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <circle cx="60" cy="200" r="30" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <circle cx="60" cy="200" r="50" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <circle cx="200" cy="60" r="25" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-        <circle cx="200" cy="60" r="45" fill="none" stroke="var(--topo)" stroke-width="0.7"/>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#topo)" />
-  </svg>
-
-  <!-- MAP GRID DOTS -->
-  <svg class="grid-dots" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
-        <circle cx="20" cy="20" r="0.8" fill="var(--road)" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#dots)" />
-  </svg>
-
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <img class="nav-logo-icon" src="assets/logo.png" alt="Arrivio" />
-        <span class="nav-logo-text">Arrivio</span>
-      </a>
-      <a href="#" class="nav-cta">Add to Chrome <span class="nav-arrow">&rarr;</span></a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <svg class="hero-route" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path class="route-line" d="M100 500 C200 400, 300 200, 500 250 C700 300, 600 100, 800 80 C1000 60, 1050 200, 1100 100" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="5,8" />
-      <path class="route-glow" d="M100 500 C200 400, 300 200, 500 250 C700 300, 600 100, 800 80 C1000 60, 1050 200, 1100 100" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.2"/>
-      <!-- Start pin: pulsing dot -->
-      <circle class="pulse-ring" cx="100" cy="500" r="12" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.3"/>
-      <circle class="pulse-dot" cx="100" cy="500" r="6" fill="var(--accent)"/>
-      <!-- End pin -->
-      <g class="end-pin" transform="translate(1100, 100)">
-        <path d="M0-35 C-10-35 -18-27 -18-18 C-18-8 0 8 0 8 C0 8 18-8 18-18 C18-27 10-35 0-35Z" fill="var(--accent)" class="pin-drop"/>
-        <circle cx="0" cy="-20" r="6" fill="#fff"/>
-      </g>
-    </svg>
-
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Chrome Extension
-      </div>
-      <h1 class="hero-headline reveal" data-delay="100">
-        Move smart.<br/>Not far.
-      </h1>
-      <p class="hero-sub reveal" data-delay="200">
-        Instantly see drive times to work, family, and everywhere
-        that matters — right on every listing you browse.
-      </p>
-      <div class="hero-actions reveal" data-delay="300">
-        <a href="#" class="btn-cta">
-          Add to Chrome
-          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
-        </a>
-        <span class="hero-note">Free forever &middot; No account needed</span>
-      </div>
-    </div>
-
-    <div class="hero-mockup reveal" data-delay="500">
-      <div class="mockup-browser">
-        <div class="mockup-bar">
-          <div class="mockup-dots"><span></span><span></span><span></span></div>
-          <div class="mockup-url">zillow.com/homedetails/742-evergreen-terrace</div>
-        </div>
-        <div class="mockup-body">
-          <div class="mockup-listing">
-            <div class="mockup-photo"></div>
-            <div class="mockup-details">
-              <div class="mockup-price">$425,000</div>
-              <div class="mockup-address">742 Evergreen Terrace, Springfield, IL</div>
-              <div class="mockup-specs"><span>3 bed</span><span>2 bath</span><span>1,850 sqft</span></div>
-              <div class="mockup-lines"><div class="ml" style="width:100%"></div><div class="ml" style="width:88%"></div><div class="ml" style="width:72%"></div></div>
-            </div>
-          </div>
-          <div class="mockup-widget widget-animate">
-            <div class="mw-header">
-              <div class="mw-brand">
-                <img class="mw-logo" src="assets/logo.png" alt="" />
-                <span class="mw-title">Arrivio</span>
-              </div>
-              <span class="mw-min">&minus;</span>
-            </div>
-            <div class="mw-tabs">
-              <span class="mw-tab active">● Now</span>
-              <span class="mw-tab">☀ AM Rush</span>
-              <span class="mw-tab">☽ PM Rush</span>
-            </div>
-            <div class="mw-panel">
-              <div class="mw-row"><span class="mw-left"><span class="mw-dot" style="background:var(--green)"></span><span class="mw-name">Work</span></span><span class="mw-time" style="color:var(--green)">12 min</span></div>
-              <div class="mw-row"><span class="mw-left"><span class="mw-dot" style="background:var(--green)"></span><span class="mw-name">Gym</span></span><span class="mw-time" style="color:var(--green)">8 min</span></div>
-              <div class="mw-row"><span class="mw-left"><span class="mw-dot" style="background:var(--amber)"></span><span class="mw-name">Mom's House</span></span><span class="mw-time" style="color:var(--amber)">27 min</span></div>
-              <div class="mw-row"><span class="mw-left"><span class="mw-dot" style="background:var(--green)"></span><span class="mw-name">Downtown</span></span><span class="mw-time" style="color:var(--green)">15 min</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROUTE DIVIDER -->
-  <div class="route-divider">
-    <svg viewBox="0 0 1200 80" fill="none" preserveAspectRatio="none"><path class="divider-path" d="M0 40 Q300 10 600 40 Q900 70 1200 40" stroke="var(--road)" stroke-width="2" stroke-dasharray="8,6"/></svg>
-  </div>
-
-  <!-- STATS -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-pin"></div>
-          <span class="stat-number" data-count="54">0</span>
-          <span class="stat-label">min/day average commute</span>
-        </div>
-        <div class="stat-card reveal" data-delay="100">
-          <div class="stat-pin"></div>
-          <span class="stat-number" data-count="9">0</span>
-          <span class="stat-label">full days/year in traffic</span>
-        </div>
-        <div class="stat-card reveal" data-delay="200">
-          <div class="stat-pin"></div>
-          <span class="stat-number special" data-count="1">0</span>
-          <span class="stat-label">#1 regret of new homeowners</span>
-        </div>
-      </div>
-      <div class="stats-copy reveal" data-delay="100">
-        <h2>You check the price. You check the bedrooms.<br/>But the commute? That's buried in another app.</h2>
-        <p><strong>Arrivio fixes that.</strong> It puts drive times directly on the listing page so you can make smarter decisions without leaving the site.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROUTE DIVIDER -->
-  <div class="route-divider">
-    <svg viewBox="0 0 1200 80" fill="none" preserveAspectRatio="none"><path class="divider-path" d="M0 40 Q300 70 600 40 Q900 10 1200 40" stroke="var(--road)" stroke-width="2" stroke-dasharray="8,6"/></svg>
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">How it works</span>
-        <h2 class="section-headline">Three stops. One route.</h2>
-      </div>
-
-      <div class="route-steps">
-        <!-- SVG connecting route -->
-        <svg class="steps-route" viewBox="0 0 1000 120" fill="none" aria-hidden="true">
-          <path class="steps-path" d="M80 60 L340 60 Q370 60 370 60 L630 60 Q660 60 660 60 L920 60" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6,8" stroke-linecap="round"/>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Arrivio — Know before you go.</title>
+        <meta
+            name="description"
+            content="See drive times to your important places while browsing real estate listings. Works on Zillow, Realtor.com, Apartments.com, Trulia, and Redfin."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="icon" href="assets/logo.png" />
+    </head>
+    <body>
+        <!-- TOPO BACKGROUND -->
+        <svg class="topo-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="topo" width="260" height="260" patternUnits="userSpaceOnUse">
+                    <path
+                        d="M130 30 Q160 60 140 100 Q120 140 150 170 Q180 200 130 230"
+                        fill="none"
+                        stroke="var(--topo)"
+                        stroke-width="0.7"
+                    />
+                    <path
+                        d="M130 50 Q150 75 135 105 Q120 135 145 160 Q165 185 130 210"
+                        fill="none"
+                        stroke="var(--topo)"
+                        stroke-width="0.7"
+                    />
+                    <path d="M40 80 Q70 50 110 70 Q150 90 180 60" fill="none" stroke="var(--topo)" stroke-width="0.7" />
+                    <path
+                        d="M20 160 Q60 130 100 150 Q140 170 190 140 Q230 110 250 140"
+                        fill="none"
+                        stroke="var(--topo)"
+                        stroke-width="0.7"
+                    />
+                    <circle cx="60" cy="200" r="30" fill="none" stroke="var(--topo)" stroke-width="0.7" />
+                    <circle cx="60" cy="200" r="50" fill="none" stroke="var(--topo)" stroke-width="0.7" />
+                    <circle cx="200" cy="60" r="25" fill="none" stroke="var(--topo)" stroke-width="0.7" />
+                    <circle cx="200" cy="60" r="45" fill="none" stroke="var(--topo)" stroke-width="0.7" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#topo)" />
         </svg>
 
-        <div class="step reveal" data-delay="0">
-          <div class="step-marker">
-            <div class="step-marker-ring"></div>
-            <span>1</span>
-          </div>
-          <h3 class="step-title">Save your places</h3>
-          <p class="step-desc">Add addresses you visit regularly — work, gym, family, daycare. Label them however you want.</p>
-        </div>
-        <div class="step reveal" data-delay="200">
-          <div class="step-marker">
-            <div class="step-marker-ring"></div>
-            <span>2</span>
-          </div>
-          <h3 class="step-title">Browse listings</h3>
-          <p class="step-desc">Shop for homes on Zillow, Redfin, Realtor, Trulia, or Apartments.com. Arrivio detects listings automatically.</p>
-        </div>
-        <div class="step reveal" data-delay="400">
-          <div class="step-marker pin-marker">
-            <svg viewBox="0 0 24 36" fill="var(--accent)"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24C24 5.4 18.6 0 12 0zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/></svg>
-          </div>
-          <h3 class="step-title">See ETAs instantly</h3>
-          <p class="step-desc">A small widget appears with drive times to all your places. Color-coded so you decide at a glance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- MAP GRID DOTS -->
+        <svg class="grid-dots" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle cx="20" cy="20" r="0.8" fill="var(--road)" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dots)" />
+        </svg>
 
-  <!-- FEATURES -->
-  <section class="features-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Features</span>
-        <h2 class="section-headline">Built for serious apartment hunters.</h2>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card feature-wide reveal">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>Works on 5 major sites</h3>
-          <p>Zillow, Realtor.com, Apartments.com, Trulia, and Redfin. One extension covers all your browsing.</p>
-          <div class="feature-pills">
-            <span>Zillow</span><span>Realtor</span><span>Apartments</span><span>Trulia</span><span>Redfin</span>
-          </div>
-        </div>
-        <div class="feature-card reveal" data-delay="100">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Traffic-aware ETAs</h3>
-          <p>Real-time traffic data from MapBox. Actual drive times, not just distance.</p>
-        </div>
-        <div class="feature-card reveal" data-delay="200">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h3>Privacy first</h3>
-          <p>Your places stay in your browser. No accounts, no tracking, no data collection.</p>
-        </div>
-        <div class="feature-card reveal" data-delay="100">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3>Lightweight</h3>
-          <p>Under 200KB. Loads instantly. Never slows down the pages you're browsing.</p>
-        </div>
-        <div class="feature-card reveal" data-delay="200">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <h3>Unlimited places</h3>
-          <p>Work, school, daycare, partner's office, coffee shop — save as many as you need.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEMO -->
-  <section class="demo-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Try it</span>
-        <h2 class="section-headline">See it in action.</h2>
-        <p class="section-sub">Type any address and watch the ETAs appear.</p>
-      </div>
-      <div class="demo-box reveal" data-delay="100">
-        <div class="demo-input-wrap">
-          <svg class="demo-pin-icon" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <input id="demo-address" class="demo-input" type="text" placeholder="e.g. 350 5th Ave, New York, NY" autocomplete="off" />
-        </div>
-        <div class="demo-widget" id="demo-widget">
-          <div class="demo-empty" id="demo-empty">Type an address above to see sample ETAs</div>
-          <div class="demo-results" id="demo-results" style="display:none">
-            <div class="demo-header">
-              <img class="demo-logo" src="assets/logo.png" alt="" />
-              <span class="demo-brand">Arrivio</span>
+        <!-- NAV -->
+        <nav class="nav" id="nav">
+            <div class="nav-inner">
+                <a href="#" class="nav-logo">
+                    <img class="nav-logo-icon" src="assets/logo.png" alt="Arrivio" />
+                    <span class="nav-logo-text">Arrivio</span>
+                </a>
+                <a href="#" class="nav-cta">Add to Chrome <span class="nav-arrow">&rarr;</span></a>
             </div>
-            <div class="demo-rows" id="demo-rows"></div>
-          </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <svg
+                class="hero-route"
+                viewBox="0 0 1200 600"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+                <path
+                    class="route-line"
+                    d="M100 500 C200 400, 300 200, 500 250 C700 300, 600 100, 800 80 C1000 60, 1050 200, 1100 100"
+                    stroke="var(--accent)"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    fill="none"
+                    stroke-dasharray="5,8"
+                />
+                <path
+                    class="route-glow"
+                    d="M100 500 C200 400, 300 200, 500 250 C700 300, 600 100, 800 80 C1000 60, 1050 200, 1100 100"
+                    stroke="var(--accent)"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    fill="none"
+                    opacity="0.2"
+                />
+                <!-- Start pin: pulsing dot -->
+                <circle
+                    class="pulse-ring"
+                    cx="100"
+                    cy="500"
+                    r="12"
+                    fill="none"
+                    stroke="var(--accent)"
+                    stroke-width="2"
+                    opacity="0.3"
+                />
+                <circle class="pulse-dot" cx="100" cy="500" r="6" fill="var(--accent)" />
+                <!-- End pin -->
+                <g class="end-pin" transform="translate(1100, 100)">
+                    <path
+                        d="M0-35 C-10-35 -18-27 -18-18 C-18-8 0 8 0 8 C0 8 18-8 18-18 C18-27 10-35 0-35Z"
+                        fill="var(--accent)"
+                        class="pin-drop"
+                    />
+                    <circle cx="0" cy="-20" r="6" fill="#fff" />
+                </g>
+            </svg>
+
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="badge-dot"></span>
+                    Chrome Extension
+                </div>
+                <h1 class="hero-headline reveal" data-delay="100">Move smart.<br />Not far.</h1>
+                <p class="hero-sub reveal" data-delay="200">
+                    Instantly see drive times to work, family, and everywhere that matters — right on every listing you
+                    browse.
+                </p>
+                <div class="hero-actions reveal" data-delay="300">
+                    <a href="#" class="btn-cta">
+                        Add to Chrome
+                        <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                            />
+                        </svg>
+                    </a>
+                    <span class="hero-note">Free forever &middot; No account needed</span>
+                </div>
+            </div>
+
+            <div class="hero-mockup reveal" data-delay="500">
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dots"><span></span><span></span><span></span></div>
+                        <div class="mockup-url">zillow.com/homedetails/742-evergreen-terrace</div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-listing">
+                            <div class="mockup-photo"></div>
+                            <div class="mockup-details">
+                                <div class="mockup-price">$425,000</div>
+                                <div class="mockup-address">742 Evergreen Terrace, Springfield, IL</div>
+                                <div class="mockup-specs">
+                                    <span>3 bed</span><span>2 bath</span><span>1,850 sqft</span>
+                                </div>
+                                <div class="mockup-lines">
+                                    <div class="ml" style="width:100%"></div>
+                                    <div class="ml" style="width:88%"></div>
+                                    <div class="ml" style="width:72%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mockup-widget widget-animate">
+                            <div class="mw-header">
+                                <div class="mw-brand">
+                                    <img class="mw-logo" src="assets/logo.png" alt="" />
+                                    <span class="mw-title">Arrivio</span>
+                                </div>
+                                <span class="mw-min">&minus;</span>
+                            </div>
+                            <div class="mw-panel">
+                                <div class="mw-row">
+                                    <span class="mw-left"
+                                        ><span class="mw-dot" style="background:var(--green)"></span
+                                        ><span class="mw-name">Work</span></span
+                                    ><span class="mw-time" style="color:var(--green)">12 min</span>
+                                </div>
+                                <div class="mw-row">
+                                    <span class="mw-left"
+                                        ><span class="mw-dot" style="background:var(--green)"></span
+                                        ><span class="mw-name">Gym</span></span
+                                    ><span class="mw-time" style="color:var(--green)">8 min</span>
+                                </div>
+                                <div class="mw-row">
+                                    <span class="mw-left"
+                                        ><span class="mw-dot" style="background:var(--amber)"></span
+                                        ><span class="mw-name">Grandma's House</span></span
+                                    ><span class="mw-time" style="color:var(--amber)">27 min</span>
+                                </div>
+                                <div class="mw-row">
+                                    <span class="mw-left"
+                                        ><span class="mw-dot" style="background:var(--green)"></span
+                                        ><span class="mw-name">Downtown</span></span
+                                    ><span class="mw-time" style="color:var(--green)">15 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROUTE DIVIDER -->
+        <div class="route-divider">
+            <svg viewBox="0 0 1200 80" fill="none" preserveAspectRatio="none">
+                <path
+                    class="divider-path"
+                    d="M0 40 Q300 10 600 40 Q900 70 1200 40"
+                    stroke="var(--road)"
+                    stroke-width="2"
+                    stroke-dasharray="8,6"
+                />
+            </svg>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-block reveal">
-        <div class="cta-pin-icon">
-          <svg viewBox="0 0 48 64" fill="var(--accent)"><path d="M24 0C10.7 0 0 10.7 0 24c0 18 24 40 24 40s24-22 24-40C48 10.7 37.3 0 24 0zm0 33c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z"/></svg>
+        <!-- STATS -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal">
+                        <div class="stat-pin"></div>
+                        <span class="stat-number" data-count="54">0</span>
+                        <span class="stat-label">min/day average commute</span>
+                    </div>
+                    <div class="stat-card reveal" data-delay="100">
+                        <div class="stat-pin"></div>
+                        <span class="stat-number" data-count="9">0</span>
+                        <span class="stat-label">full days/year in traffic</span>
+                    </div>
+                    <div class="stat-card reveal" data-delay="200">
+                        <div class="stat-pin"></div>
+                        <span class="stat-number special" data-count="1">0</span>
+                        <span class="stat-label">#1 regret of new homeowners</span>
+                    </div>
+                </div>
+                <div class="stats-copy reveal" data-delay="100">
+                    <h2>
+                        You check the price. You check the bedrooms.<br />But the commute? That's buried in another app.
+                    </h2>
+                    <p>
+                        <strong>Arrivio fixes that.</strong> It puts drive times directly on the listing page so you can
+                        make smarter decisions without leaving the site.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROUTE DIVIDER -->
+        <div class="route-divider">
+            <svg viewBox="0 0 1200 80" fill="none" preserveAspectRatio="none">
+                <path
+                    class="divider-path"
+                    d="M0 40 Q300 70 600 40 Q900 10 1200 40"
+                    stroke="var(--road)"
+                    stroke-width="2"
+                    stroke-dasharray="8,6"
+                />
+            </svg>
         </div>
-        <h2 class="cta-headline">Your destination:<br/>a smarter home search.</h2>
-        <p class="cta-sub">Install Arrivio and never wonder "how far is this from work?" again.</p>
-        <a href="#" class="btn-cta btn-cta-lg">
-          Add to Chrome
-          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
-        </a>
-        <span class="cta-note">Free forever &middot; Open source</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img class="footer-logo" src="assets/logo.png" alt="" />
-        <span>Arrivio</span>
-      </div>
-      <div class="footer-links">
-        <a href="#">Chrome Web Store</a>
-        <a href="#">GitHub</a>
-        <a href="#">Privacy</a>
-      </div>
-      <p class="footer-note">Built for apartment hunters who value their time.</p>
-    </div>
-  </footer>
+        <!-- HOW IT WORKS -->
+        <section class="how-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">How it works</span>
+                    <h2 class="section-headline">Three stops. One route.</h2>
+                </div>
 
-  <script src="js/main.js"></script>
-</body>
+                <div class="route-steps">
+                    <!-- SVG connecting route -->
+                    <svg class="steps-route" viewBox="0 0 1000 120" fill="none" aria-hidden="true">
+                        <path
+                            class="steps-path"
+                            d="M80 60 L340 60 Q370 60 370 60 L630 60 Q660 60 660 60 L920 60"
+                            stroke="var(--accent)"
+                            stroke-width="2.5"
+                            stroke-dasharray="6,8"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                    <div class="step reveal" data-delay="0">
+                        <div class="step-marker">
+                            <div class="step-marker-ring"></div>
+                            <span>1</span>
+                        </div>
+                        <h3 class="step-title">Save your places</h3>
+                        <p class="step-desc">
+                            Add addresses you visit regularly — work, gym, family, daycare. Label them however you want.
+                        </p>
+                    </div>
+                    <div class="step reveal" data-delay="200">
+                        <div class="step-marker">
+                            <div class="step-marker-ring"></div>
+                            <span>2</span>
+                        </div>
+                        <h3 class="step-title">Browse listings</h3>
+                        <p class="step-desc">
+                            Shop for homes on Zillow, Redfin, Realtor, Trulia, or Apartments.com. Arrivio detects
+                            listings automatically.
+                        </p>
+                    </div>
+                    <div class="step reveal" data-delay="400">
+                        <div class="step-marker pin-marker">
+                            <svg viewBox="0 0 24 36" fill="var(--accent)">
+                                <path
+                                    d="M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24C24 5.4 18.6 0 12 0zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"
+                                />
+                            </svg>
+                        </div>
+                        <h3 class="step-title">See ETAs instantly</h3>
+                        <p class="step-desc">
+                            A small widget appears with drive times to all your places. Color-coded so you decide at a
+                            glance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Features</span>
+                    <h2 class="section-headline">Built for serious apartment hunters.</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card feature-wide reveal">
+                        <div class="feature-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3>Works on 5 major sites</h3>
+                        <p>
+                            Zillow, Realtor.com, Apartments.com, Trulia, and Redfin. One extension covers all your
+                            browsing.
+                        </p>
+                        <div class="feature-pills">
+                            <span>Zillow</span><span>Realtor</span><span>Apartments</span><span>Trulia</span
+                            ><span>Redfin</span>
+                        </div>
+                    </div>
+                    <div class="feature-card reveal" data-delay="100">
+                        <div class="feature-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <h3>Traffic-aware ETAs</h3>
+                        <p>Real-time traffic data from MapBox. Actual drive times, not just distance.</p>
+                    </div>
+                    <div class="feature-card reveal" data-delay="200">
+                        <div class="feature-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect x="3" y="11" width="18" height="11" rx="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </div>
+                        <h3>Privacy first</h3>
+                        <p>Your places stay in your browser. No accounts, no tracking, no data collection.</p>
+                    </div>
+                    <div class="feature-card reveal" data-delay="100">
+                        <div class="feature-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <h3>Lightweight</h3>
+                        <p>Under 200KB. Loads instantly. Never slows down the pages you're browsing.</p>
+                    </div>
+                    <div class="feature-card reveal" data-delay="200">
+                        <div class="feature-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <h3>Unlimited places</h3>
+                        <p>Work, school, daycare, partner's office, coffee shop — save as many as you need.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMO -->
+        <section class="demo-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Try it</span>
+                    <h2 class="section-headline">See it in action.</h2>
+                    <p class="section-sub">Type any address and watch the ETAs appear.</p>
+                </div>
+                <div class="demo-box reveal" data-delay="100">
+                    <div class="demo-input-wrap">
+                        <svg
+                            class="demo-pin-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="var(--accent)"
+                            stroke-width="2"
+                        >
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <input
+                            id="demo-address"
+                            class="demo-input"
+                            type="text"
+                            placeholder="e.g. 350 5th Ave, New York, NY"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div class="demo-widget" id="demo-widget">
+                        <div class="demo-empty" id="demo-empty">Type an address above to see sample ETAs</div>
+                        <div class="demo-results" id="demo-results" style="display:none">
+                            <div class="demo-header">
+                                <img class="demo-logo" src="assets/logo.png" alt="" />
+                                <span class="demo-brand">Arrivio</span>
+                            </div>
+                            <div class="demo-rows" id="demo-rows"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-block reveal">
+                    <div class="cta-pin-icon">
+                        <svg viewBox="0 0 48 64" fill="var(--accent)">
+                            <path
+                                d="M24 0C10.7 0 0 10.7 0 24c0 18 24 40 24 40s24-22 24-40C48 10.7 37.3 0 24 0zm0 33c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z"
+                            />
+                        </svg>
+                    </div>
+                    <h2 class="cta-headline">Your destination:<br />a smarter home search.</h2>
+                    <p class="cta-sub">Install Arrivio and never wonder "how far is this from work?" again.</p>
+                    <a href="#" class="btn-cta btn-cta-lg">
+                        Add to Chrome
+                        <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                            />
+                        </svg>
+                    </a>
+                    <span class="cta-note">Free forever &middot; Open source</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img class="footer-logo" src="assets/logo.png" alt="" />
+                    <span>Arrivio</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Chrome Web Store</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">Privacy</a>
+                </div>
+                <p class="footer-note">Built for apartment hunters who value their time.</p>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
 </html>
