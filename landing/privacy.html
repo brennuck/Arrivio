@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrivio — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo.png" />
+  <style>
+    :root {
+      --bg: #FAFAF5;
+      --text: #1C1917;
+      --text-muted: #78716C;
+      --accent: #E85D04;
+      --topo: #E7E5E4;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 40px;
+    }
+    .back:hover { text-decoration: underline; }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .updated {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
+    p, ul {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--text); }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">&larr; Back to Arrivio</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: March 27, 2026</p>
+
+    <h2>The short version</h2>
+    <p><strong>Arrivio does not collect, store, or transmit any personal data.</strong> Everything stays on your device.</p>
+
+    <h2>What data is stored</h2>
+    <p>Arrivio stores the following data locally in your browser using <code>chrome.storage.local</code>:</p>
+    <ul>
+      <li><strong>Your saved places</strong> — names, addresses, and coordinates of locations you add (e.g. "Work", "Gym")</li>
+      <li><strong>Your MapBox access token</strong> — the API key you provide to enable routing</li>
+      <li><strong>Your preferences</strong> — transport mode (driving, walking, cycling) and enabled/disabled state</li>
+      <li><strong>Cached ETA results</strong> — temporarily stored for 30 minutes to reduce API calls</li>
+    </ul>
+
+    <h2>What data is sent externally</h2>
+    <p>Arrivio makes requests to the <strong>MapBox API</strong> (<code>api.mapbox.com</code>) to:</p>
+    <ul>
+      <li>Geocode listing addresses (convert an address to coordinates)</li>
+      <li>Calculate drive/walk/bike times between the listing and your saved places</li>
+    </ul>
+    <p>These requests include the listing address coordinates, your saved place coordinates, and your MapBox token. No other data is sent. Arrivio does not operate any servers of its own.</p>
+
+    <h2>What data is NOT collected</h2>
+    <ul>
+      <li>No analytics or tracking of any kind</li>
+      <li>No browsing history</li>
+      <li>No personal information</li>
+      <li>No data is sent to Arrivio servers (there are none)</li>
+      <li>No third-party scripts, ads, or trackers</li>
+    </ul>
+
+    <h2>Third-party services</h2>
+    <p>Arrivio uses <a href="https://www.mapbox.com/legal/privacy" target="_blank" rel="noopener">MapBox</a> for geocoding and routing. MapBox's own privacy policy governs how they handle API requests. Your MapBox token is provided by you and stored only on your device.</p>
+
+    <h2>Your control</h2>
+    <p>You can delete all stored data at any time by:</p>
+    <ul>
+      <li>Removing individual places in the Arrivio options page</li>
+      <li>Uninstalling the extension (removes all stored data)</li>
+    </ul>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the updated version will be posted here with a new date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Open an issue on <a href="#">GitHub</a>.</p>
+  </div>
+</body>
+</html>
