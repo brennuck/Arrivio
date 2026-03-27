@@ -5,7 +5,7 @@ interface ETAItemProps {
 }
 
 function getTimeColor(minutes: number): string {
-  if (minutes < 0) return '#6B7280'
+  if (minutes < 0) return '#9CA3AF'
   if (minutes <= 15) return '#059669'
   if (minutes <= 30) return '#D97706'
   return '#DC2626'
@@ -23,9 +23,12 @@ export function ETAItem({ eta }: ETAItemProps) {
   const color = getTimeColor(eta.durationMinutes)
 
   return (
-    <div className="arrivio-item">
-      <span className="arrivio-item-name">{eta.name}</span>
-      <span className="arrivio-item-time" style={{ color }}>
+    <div className="arrivio-row">
+      <div className="arrivio-row-left">
+        <span className="arrivio-dot" style={{ background: color }} />
+        <span className="arrivio-place-name">{eta.name}</span>
+      </div>
+      <span className="arrivio-time" style={{ color }}>
         {formatDuration(eta.durationMinutes)}
       </span>
     </div>

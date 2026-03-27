@@ -34,8 +34,10 @@ export function PlaceList() {
           {places.map((place) => (
             <div key={place.id} className="place-card">
               <div className="place-info">
-                <span className="place-name">{place.name}</span>
-                <span className="place-address">{place.address}</span>
+                <div className="place-details">
+                  <span className="place-name">{place.name}</span>
+                  <span className="place-address">{place.address}</span>
+                </div>
               </div>
               <button
                 className="btn btn-danger-text"

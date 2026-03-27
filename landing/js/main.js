@@ -154,6 +154,34 @@
     })
   }
 
+  /* ---- MOCKUP WIDGET TABS ---- */
+  const mockupData = {
+    now:      [{ name: 'Work', min: 12, c: 'var(--green)' }, { name: 'Gym', min: 8, c: 'var(--green)' }, { name: "Mom's House", min: 27, c: 'var(--amber)' }, { name: 'Downtown', min: 15, c: 'var(--green)' }],
+    am_rush:  [{ name: 'Work', min: 24, c: 'var(--amber)' }, { name: 'Gym', min: 11, c: 'var(--green)' }, { name: "Mom's House", min: 38, c: 'var(--red)' }, { name: 'Downtown', min: 22, c: 'var(--amber)' }],
+    pm_rush:  [{ name: 'Work', min: 31, c: 'var(--red)' }, { name: 'Gym', min: 14, c: 'var(--green)' }, { name: "Mom's House", min: 42, c: 'var(--red)' }, { name: 'Downtown', min: 28, c: 'var(--amber)' }],
+  }
+
+  const mwTabs = document.querySelectorAll('.mw-tab')
+  const mwPanel = document.querySelector('.mockup-widget .mw-panel')
+  const tabKeys = ['now', 'am_rush', 'pm_rush']
+
+  function renderMockupRows(key) {
+    if (!mwPanel) return
+    const rows = mockupData[key] || mockupData.now
+    mwPanel.innerHTML = rows.map(function (r) {
+      return '<div class="mw-row"><span class="mw-left"><span class="mw-dot" style="background:' + r.c + '"></span><span class="mw-name">' + r.name + '</span></span><span class="mw-time" style="color:' + r.c + '">' + r.min + ' min</span></div>'
+    }).join('')
+  }
+
+  mwTabs.forEach(function (tab, i) {
+    tab.style.cursor = 'pointer'
+    tab.addEventListener('click', function () {
+      mwTabs.forEach(function (t) { t.classList.remove('active') })
+      tab.classList.add('active')
+      renderMockupRows(tabKeys[i])
+    })
+  })
+
   /* ---- PARALLAX SUBTLE ---- */
   let ticking = false
   window.addEventListener(

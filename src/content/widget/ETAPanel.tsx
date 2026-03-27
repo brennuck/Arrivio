@@ -10,69 +10,81 @@ interface ETAPanelProps {
 }
 
 export function ETAPanel({ etas, loading, error }: ETAPanelProps) {
-  const [expanded, setExpanded] = useState(true)
+  const [minimized, setMinimized] = useState(false)
 
   const showSetup = error === 'NO_TOKEN'
   const showNoPlaces = error === 'NO_PLACES'
 
-  return (
-    <div className="arrivio-panel">
+  if (minimized) {
+    return (
       <button
-        className="arrivio-toggle"
-        onClick={() => setExpanded(!expanded)}
+        className="arrivio-fab"
+        onClick={() => setMinimized(false)}
         type="button"
+        title="Show Arrivio"
       >
-        <img className="arrivio-logo" src={LOGO_DATA_URI} alt="Arrivio" />
-        {!expanded && etas.length > 0 && (
-          <span className="arrivio-badge">{etas.length}</span>
-        )}
-        <span className="arrivio-chevron" data-expanded={expanded}>
-          {expanded ? '\u25BC' : '\u25B2'}
-        </span>
+        <img className="arrivio-fab-logo" src={LOGO_DATA_URI} alt="Arrivio" />
       </button>
+    )
+  }
 
-      {expanded && (
-        <div className="arrivio-body">
-          {loading ? (
-            <div className="arrivio-status">
-              <div className="arrivio-spinner" />
-              <span>Calculating ETAs...</span>
-            </div>
-          ) : showSetup ? (
-            <div className="arrivio-status arrivio-setup">
-              <span>
-                Add your MapBox token in Arrivio settings to get started.
-              </span>
-              <button
-                className="arrivio-settings-link"
-                onClick={() => chrome.runtime.openOptionsPage()}
-                type="button"
-              >
-                Open Settings
-              </button>
-            </div>
-          ) : showNoPlaces ? (
-            <div className="arrivio-status">
-              <span>Add places in settings to see ETAs here.</span>
-              <button
-                className="arrivio-settings-link"
-                onClick={() => chrome.runtime.openOptionsPage()}
-                type="button"
-              >
-                Add Places
-              </button>
-            </div>
-          ) : error ? (
-            <div className="arrivio-status arrivio-error">{error}</div>
-          ) : (
-            <div className="arrivio-list">
-              {etas.map((eta) => (
-                <ETAItem key={eta.placeId} eta={eta} />
-              ))}
-            </div>
-          )}
+  return (
+    <div className="arrivio-card">
+      <div className="arrivio-header">
+        <div className="arrivio-brand">
+          <img className="arrivio-logo" src={LOGO_DATA_URI} alt="" />
+          <span className="arrivio-title">Arrivio</span>
         </div>
-      )}
+        <button
+          className="arrivio-minimize"
+          onClick={() => setMinimized(true)}
+          type="button"
+          title="Minimize"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div className="arrivio-content">
+        {loading ? (
+          <div className="arrivio-status">
+            <div className="arrivio-spinner" />
+            <span>Calculating ETAs...</span>
+          </div>
+        ) : showSetup ? (
+          <div className="arrivio-status arrivio-setup">
+            <span>Add your MapBox token in Arrivio settings to get started.</span>
+            <button
+              className="arrivio-action-btn"
+              onClick={() => chrome.runtime.openOptionsPage()}
+              type="button"
+            >
+              Open Settings
+            </button>
+          </div>
+        ) : showNoPlaces ? (
+          <div className="arrivio-status">
+            <span>Add places in settings to see ETAs here.</span>
+            <button
+              className="arrivio-action-btn"
+              onClick={() => chrome.runtime.openOptionsPage()}
+              type="button"
+            >
+              Add Places
+            </button>
+          </div>
+        ) : error ? (
+          <div className="arrivio-status arrivio-error">{error}</div>
+        ) : (
+          <div className="arrivio-list">
+            {etas.map((eta) => (
+              <ETAItem key={eta.placeId} eta={eta} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
