@@ -1,11 +1,12 @@
 import { PlaceList } from './components/PlaceList'
 import { Settings } from './components/Settings'
+import logoIcon from '../assets/icons/icon48.png'
 
 export function App() {
   return (
     <div className="options-container">
       <header className="options-header">
-        <div className="options-logo">A</div>
+        <img className="options-logo" src={logoIcon} alt="Arrivio" />
         <h1 className="options-title">Arrivio</h1>
       </header>
 

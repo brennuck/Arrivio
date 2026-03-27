@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getSettings, saveSettings, getPlaces } from '../shared/storage'
 import type { Place } from '../shared/types'
+import logoIcon from '../assets/icons/icon48.png'
 
 export function App() {
   const [enabled, setEnabled] = useState(true)
@@ -25,7 +26,7 @@ export function App() {
     <div className="popup">
       <header className="popup-header">
         <div className="popup-brand">
-          <div className="popup-logo">A</div>
+          <img className="popup-logo" src={logoIcon} alt="Arrivio" />
           <span className="popup-name">Arrivio</span>
         </div>
         <button

@@ -29,15 +29,7 @@ body {
 .options-logo {
   width: 40px;
   height: 40px;
-  background: #e85d04;
-  color: #fff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.5px;
+  object-fit: contain;
 }
 
 .options-title {

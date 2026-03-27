@@ -33,15 +33,7 @@ body {
 .popup-logo {
   width: 32px;
   height: 32px;
-  background: #e85d04;
-  color: #fff;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: -0.5px;
+  object-fit: contain;
 }
 
 .popup-name {
