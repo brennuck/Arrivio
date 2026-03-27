@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrivio — Know before you go.</title>
+  <meta name="description" content="See drive times to your important places while browsing real estate listings. Works on Zillow, Realtor.com, Apartments.com, Trulia, and Redfin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23E85D04'/><text x='50' y='72' font-size='65' font-weight='800' text-anchor='middle' fill='white' font-family='sans-serif'>A</text></svg>" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">A</div>
+        <span class="nav-logo-text">Arrivio</span>
+      </a>
+      <a href="#" class="nav-cta">Add to Chrome</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">Chrome Extension</p>
+      <h1 class="hero-headline">Know before<br />you go.</h1>
+      <p class="hero-sub">
+        See real-time drive times to work, family, and everywhere that matters
+        — right on every listing you browse.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-cta">Add to Chrome <span class="btn-arrow">&rarr;</span></a>
+        <span class="hero-free">Free &middot; No signup required</span>
+      </div>
+    </div>
+
+    <div class="hero-mockup reveal" data-delay="400">
+      <div class="mockup-browser">
+        <div class="mockup-bar">
+          <div class="mockup-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mockup-url">zillow.com/homedetails/742-evergreen-terrace</div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-listing">
+            <div class="mockup-photo"></div>
+            <div class="mockup-details">
+              <div class="mockup-price">$425,000</div>
+              <div class="mockup-address">742 Evergreen Terrace, Springfield, IL</div>
+              <div class="mockup-specs">
+                <span>3 bed</span>
+                <span>2 bath</span>
+                <span>1,850 sqft</span>
+              </div>
+              <div class="mockup-desc-lines">
+                <div class="line" style="width:100%"></div>
+                <div class="line" style="width:92%"></div>
+                <div class="line" style="width:85%"></div>
+                <div class="line" style="width:60%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="mockup-widget" id="hero-widget">
+            <div class="mw-toggle">
+              <div class="mw-logo">A</div>
+            </div>
+            <div class="mw-panel">
+              <div class="mw-row">
+                <span class="mw-name">Work</span>
+                <span class="mw-time mw-green">12 min</span>
+              </div>
+              <div class="mw-row">
+                <span class="mw-name">Gym</span>
+                <span class="mw-time mw-green">8 min</span>
+              </div>
+              <div class="mw-row">
+                <span class="mw-name">Mom's House</span>
+                <span class="mw-time mw-amber">27 min</span>
+              </div>
+              <div class="mw-row">
+                <span class="mw-name">Downtown</span>
+                <span class="mw-time mw-green">15 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <div class="problem-grid reveal">
+        <div class="problem-stat">
+          <span class="stat-number">54</span>
+          <span class="stat-unit">min/day</span>
+          <p class="stat-caption">Average American commute. That's 9 full days every year stuck in traffic.</p>
+        </div>
+        <div class="problem-copy">
+          <h2 class="problem-headline">Commute is the #1 regret of new homeowners.</h2>
+          <p class="problem-body">
+            You check the price. You check the bedrooms. But the one thing that affects your
+            daily life more than anything — how long it takes to get everywhere — is buried
+            in a separate tab on a different app.
+          </p>
+          <p class="problem-body">
+            <strong>Arrivio fixes that.</strong> It puts drive times front and center,
+            directly on the listing page, so you can make smarter decisions without
+            leaving the site.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <p class="section-tag reveal">How it works</p>
+      <h2 class="section-headline reveal">Three steps. Zero friction.</h2>
+      <div class="steps-grid">
+        <div class="step reveal" data-delay="0">
+          <div class="step-number">01</div>
+          <div class="step-visual step-visual-1">
+            <div class="step-icon-places">
+              <div class="step-pin"><span>Work</span></div>
+              <div class="step-pin"><span>Gym</span></div>
+              <div class="step-pin"><span>Mom</span></div>
+            </div>
+          </div>
+          <h3 class="step-title">Save your places</h3>
+          <p class="step-desc">Add the addresses you visit regularly — work, gym, family, daycare. Label them however you want.</p>
+        </div>
+        <div class="step reveal" data-delay="150">
+          <div class="step-number">02</div>
+          <div class="step-visual step-visual-2">
+            <div class="step-sites">
+              <span>Zillow</span>
+              <span>Redfin</span>
+              <span>Realtor</span>
+              <span>Trulia</span>
+              <span>Apartments</span>
+            </div>
+          </div>
+          <h3 class="step-title">Browse listings</h3>
+          <p class="step-desc">Shop for homes and apartments like you normally do. Arrivio detects listing pages automatically.</p>
+        </div>
+        <div class="step reveal" data-delay="300">
+          <div class="step-number">03</div>
+          <div class="step-visual step-visual-3">
+            <div class="step-widget-demo">
+              <div class="swd-row"><span>Work</span><span class="swd-g">12 min</span></div>
+              <div class="swd-row"><span>Gym</span><span class="swd-g">8 min</span></div>
+              <div class="swd-row"><span>Mom</span><span class="swd-a">27 min</span></div>
+            </div>
+          </div>
+          <h3 class="step-title">See ETAs instantly</h3>
+          <p class="step-desc">A small widget appears with drive times to all your places. Color-coded so you can decide at a glance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <p class="section-tag reveal">Features</p>
+      <h2 class="section-headline reveal">Built for serious apartment hunters.</h2>
+      <div class="bento">
+        <div class="bento-card bento-large reveal" data-delay="0">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="bento-title">Works on 5 major sites</h3>
+          <p class="bento-desc">Zillow, Realtor.com, Apartments.com, Trulia, and Redfin. One extension covers all your browsing.</p>
+          <div class="bento-sites-row">
+            <span>Zillow</span><span>Realtor</span><span>Apartments</span><span>Trulia</span><span>Redfin</span>
+          </div>
+        </div>
+        <div class="bento-card reveal" data-delay="100">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="bento-title">Traffic-aware ETAs</h3>
+          <p class="bento-desc">Powered by MapBox's real-time traffic data. Not just distance — actual drive times based on road conditions.</p>
+        </div>
+        <div class="bento-card reveal" data-delay="200">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="bento-title">Privacy first</h3>
+          <p class="bento-desc">Your saved places stay in your browser. No accounts. No tracking. No data leaves your machine except the routing query.</p>
+        </div>
+        <div class="bento-card reveal" data-delay="150">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="bento-title">Lightweight</h3>
+          <p class="bento-desc">Under 200KB. No bloated frameworks. Loads in milliseconds and never slows down the pages you're browsing.</p>
+        </div>
+        <div class="bento-card reveal" data-delay="250">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="bento-title">Unlimited places</h3>
+          <p class="bento-desc">Save as many destinations as you need. Work, school, daycare, partner's office, favorite coffee shop — all of them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="demo">
+    <div class="container">
+      <p class="section-tag reveal">Try it</p>
+      <h2 class="section-headline reveal">See it in action.</h2>
+      <p class="section-sub reveal">Type any address and watch the ETAs appear — just like they would on a real listing.</p>
+      <div class="demo-box reveal" data-delay="200">
+        <div class="demo-input-wrap">
+          <label class="demo-label" for="demo-address">Listing address</label>
+          <input id="demo-address" class="demo-input" type="text" placeholder="e.g. 350 5th Ave, New York, NY" autocomplete="off" />
+        </div>
+        <div class="demo-widget" id="demo-widget">
+          <div class="demo-widget-empty" id="demo-empty">
+            Type an address above to see sample ETAs
+          </div>
+          <div class="demo-widget-results" id="demo-results" style="display:none">
+            <div class="dw-header">
+              <div class="dw-logo">A</div>
+              <span class="dw-brand">Arrivio</span>
+            </div>
+            <div class="dw-rows" id="demo-rows"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="cta-block reveal">
+        <h2 class="cta-headline">Stop guessing.<br />Start knowing.</h2>
+        <p class="cta-sub">Install Arrivio and never wonder "how far is this from work?" again.</p>
+        <a href="#" class="btn-cta btn-cta-large">Add to Chrome <span class="btn-arrow">&rarr;</span></a>
+        <span class="cta-free">Free forever &middot; Open source</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">A</div>
+        <span>Arrivio</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Chrome Web Store</a>
+        <a href="#">GitHub</a>
+        <a href="#">Privacy</a>
+      </div>
+      <p class="footer-copy">Built for apartment hunters who value their time.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
