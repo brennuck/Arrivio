@@ -12,7 +12,6 @@ interface ETAPanelProps {
 export function ETAPanel({ etas, loading, error }: ETAPanelProps) {
   const [minimized, setMinimized] = useState(false)
 
-  const showSetup = error === 'NO_TOKEN'
   const showNoPlaces = error === 'NO_PLACES'
 
   if (minimized) {
@@ -52,17 +51,6 @@ export function ETAPanel({ etas, loading, error }: ETAPanelProps) {
           <div className="arrivio-status">
             <div className="arrivio-spinner" />
             <span>Calculating ETAs...</span>
-          </div>
-        ) : showSetup ? (
-          <div className="arrivio-status arrivio-setup">
-            <span>Add your MapBox token in Arrivio settings to get started.</span>
-            <button
-              className="arrivio-action-btn"
-              onClick={() => chrome.runtime.openOptionsPage()}
-              type="button"
-            >
-              Open Settings
-            </button>
           </div>
         ) : showNoPlaces ? (
           <div className="arrivio-status">

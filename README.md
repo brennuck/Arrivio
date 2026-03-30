@@ -30,7 +30,6 @@ ARMLS (AZ) · CRMLS (CA) · REcolorado (CO) · Bright MLS (DE/MD/VA/DC) · Stell
 
 ### Prerequisites
 - Node.js 18+
-- A free [MapBox](https://account.mapbox.com) access token (100k requests/month free)
 
 ### Development
 
@@ -46,16 +45,24 @@ Load the extension in Chrome:
 
 ### Production build
 
+Create a `.env` file in the project root with your MapBox token:
+
+```
+VITE_MAPBOX_TOKEN=pk.eyJ1Ijoi...
+```
+
+Then build:
+
 ```bash
 npm run build
 ```
 
 The built extension will be in the `dist` folder.
 
-### Adding your MapBox token
+### Getting started
 
-1. Click the Arrivio icon in Chrome → Open Settings
-2. Paste your MapBox access token
+1. Install the extension
+2. Click the Arrivio icon → Open Settings
 3. Add your places (work, gym, etc.)
 4. Browse any supported listing site — ETAs appear automatically
 

@@ -6,12 +6,10 @@ import logoIcon from '../assets/icons/icon48.png'
 export function App() {
   const [enabled, setEnabled] = useState(true)
   const [places, setPlaces] = useState<Place[]>([])
-  const [hasToken, setHasToken] = useState(false)
 
   useEffect(() => {
     getSettings().then((s) => {
       setEnabled(s.enabled)
-      setHasToken(!!s.mapboxToken)
     })
     getPlaces().then(setPlaces)
   }, [])
@@ -40,12 +38,6 @@ export function App() {
       </header>
 
       <div className="popup-body">
-        {!hasToken && (
-          <div className="popup-notice">
-            Add your MapBox token in settings to get started.
-          </div>
-        )}
-
         <div className="popup-stat">
           <span className="popup-stat-number">{places.length}</span>
           <span className="popup-stat-label">

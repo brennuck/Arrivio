@@ -3,7 +3,6 @@ import type { ArrivioSettings, Place } from './types'
 const DEFAULT_SETTINGS: ArrivioSettings = {
   enabled: true,
   transportMode: 'driving',
-  mapboxToken: '',
   places: [],
 }
 

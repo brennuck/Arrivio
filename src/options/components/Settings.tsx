@@ -10,18 +10,16 @@ const MODES: { value: TransportMode; label: string }[] = [
 
 export function Settings() {
   const [mode, setMode] = useState<TransportMode>('driving')
-  const [token, setToken] = useState('')
   const [saved, setSaved] = useState(false)
 
   useEffect(() => {
     getSettings().then((s) => {
       setMode(s.transportMode)
-      setToken(s.mapboxToken)
     })
   }, [])
 
   async function handleSave() {
-    await saveSettings({ transportMode: mode, mapboxToken: token })
+    await saveSettings({ transportMode: mode })
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)
   }
@@ -42,27 +40,6 @@ export function Settings() {
             </button>
           ))}
         </div>
-      </div>
-
-      <div className="form-field">
-        <label className="form-label" htmlFor="mapbox-token">
-          MapBox Access Token
-        </label>
-        <input
-          id="mapbox-token"
-          className="form-input"
-          type="text"
-          placeholder="pk.eyJ1Ijoi..."
-          value={token}
-          onChange={(e) => setToken(e.target.value)}
-        />
-        <p className="form-hint">
-          Get a free token at{' '}
-          <a href="https://account.mapbox.com" target="_blank" rel="noopener noreferrer">
-            mapbox.com
-          </a>{' '}
-          — 100k requests/month free.
-        </p>
       </div>
 
       <button className="btn btn-primary" onClick={handleSave} type="button">

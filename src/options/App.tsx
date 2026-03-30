@@ -56,7 +56,7 @@ export function App() {
               </div>
               <div>
                 <h2 className="section-title">Settings</h2>
-                <p className="section-desc">Configure your transport mode and API token.</p>
+                <p className="section-desc">Configure your transport mode.</p>
               </div>
             </div>
             <Settings />

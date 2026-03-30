@@ -19,7 +19,6 @@ export type TransportMode = 'driving' | 'walking' | 'cycling'
 export interface ArrivioSettings {
   enabled: boolean
   transportMode: TransportMode
-  mapboxToken: string
   places: Place[]
 }
 

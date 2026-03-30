@@ -27,10 +27,6 @@ async function handleGetETAs(address: string): Promise<GetETAsResponse> {
   try {
     const settings = await getSettings()
 
-    if (!settings.mapboxToken) {
-      return { type: 'GET_ETAS_RESPONSE', etas: [], error: 'NO_TOKEN' }
-    }
-
     const geocoded = await geocode(address)
     if (!geocoded) {
       return {

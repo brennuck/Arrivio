@@ -1,21 +1,15 @@
 import type { GeocodingResult, TransportMode, ETAResult, Place } from './types'
-import { getSettings } from './storage'
 
 const MAPBOX_BASE = 'https://api.mapbox.com'
-
-async function getToken(): Promise<string> {
-  const settings = await getSettings()
-  return settings.mapboxToken
-}
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN as string
 
 export async function geocode(
   address: string,
 ): Promise<GeocodingResult | null> {
-  const token = await getToken()
-  if (!token) return null
+  if (!MAPBOX_TOKEN) return null
 
   const encoded = encodeURIComponent(address)
-  const url = `${MAPBOX_BASE}/geocoding/v5/mapbox.places/${encoded}.json?access_token=${token}&limit=1`
+  const url = `${MAPBOX_BASE}/geocoding/v5/mapbox.places/${encoded}.json?access_token=${MAPBOX_TOKEN}&limit=1`
 
   const res = await fetch(url)
   if (!res.ok) return null
@@ -38,12 +32,11 @@ export async function getDirections(
   toLng: number,
   mode: TransportMode = 'driving',
 ): Promise<{ durationMinutes: number; distanceKm: number } | null> {
-  const token = await getToken()
-  if (!token) return null
+  if (!MAPBOX_TOKEN) return null
 
   const profile = mode === 'driving' ? 'driving-traffic' : mode
   const coords = `${fromLng},${fromLat};${toLng},${toLat}`
-  const url = `${MAPBOX_BASE}/directions/v5/mapbox/${profile}/${coords}?access_token=${token}`
+  const url = `${MAPBOX_BASE}/directions/v5/mapbox/${profile}/${coords}?access_token=${MAPBOX_TOKEN}`
 
   const res = await fetch(url)
   if (!res.ok) return null
